@@ -39,6 +39,17 @@ async function run() {
     const visasCollection = database.collection("visas");
 
 
+
+    // create 
+    app.post('/addVisa', async(req, res) =>{
+        const data = req.body;
+        const result = await visasCollection.insertOne(data);
+        res.send(result);
+    })
+
+
+
+
     // Send a ping to confirm a successful connection
     // versel এ ডিপ্লয় করার সময় কমেন্ট করে দিতে হবে নিচের লাইন
     await client.db("admin").command({ ping: 1 });
