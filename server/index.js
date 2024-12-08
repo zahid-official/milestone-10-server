@@ -1,7 +1,7 @@
+require("dotenv").config();
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -29,8 +29,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    // versel এ ডিপ্লয় করার সময় কমেন্ট করে দিতে হবে নিচের লাইন
-    await client.connect();
+    // await client.connect();
 
     // database collection
     const database = client.db("visasDB");
@@ -127,6 +126,7 @@ async function run() {
   })
 
 
+
   // update myVisa
   app.put('/update/:id', async(req, res) => {
     const id = req.params.id;
@@ -172,13 +172,6 @@ async function run() {
     }
   })
 
-
-
-
-    // Send a ping to confirm a successful connection
-    // versel এ ডিপ্লয় করার সময় কমেন্ট করে দিতে হবে নিচের লাইন
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
 
   }
