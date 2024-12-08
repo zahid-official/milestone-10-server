@@ -54,10 +54,17 @@ async function run() {
   // readOne
   app.get('/visaDetails/:id', async(req, res) => {
     const id = req.params.id;
-    console.log(id)
     const query = {_id: new ObjectId(id)};
-    console.log(query)
     const result = await visasCollection.findOne(query);
+    res.send(result);
+  })
+
+  // read applicatons data
+  app.get('/applications/:email', async(req, res) => {
+    const email = req.params.email;
+    const query = {applicantEmail: email};
+    const cursor = applicationsCollection.find(query);
+    const result = await cursor.toArray();
     res.send(result);
   })
   
