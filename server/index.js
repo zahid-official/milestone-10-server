@@ -44,7 +44,7 @@ async function run() {
     
     // read data for home page latest section
     app.get("/", async(req, res) => {
-      const cursor = visasCollection.find().sort({_id: -1}).limit(12);
+      const cursor = visasCollection.find().sort({_id: -1}).limit(8);
           const result = await cursor.toArray();
           res.send(result);
     });
