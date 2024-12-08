@@ -16,8 +16,9 @@ app.get("/", (req, res) => {
 
 
 
-// MongoDB
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.iaxmq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+
+// MongoDb
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster1.rjxsn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -25,7 +26,7 @@ const client = new MongoClient(uri, {
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true,
-  },
+  }
 });
 
 async function run() {
@@ -37,36 +38,47 @@ async function run() {
     // database collection
     const database = client.db("visasDB");
     const visasCollection = database.collection("visas");
+    const applicationsCollection = database.collection("applications");
 
 
 
-
+    
 
     // read
     app.get('/visa', async(req, res) => {
-        const cursor = visasCollection.find();
-        const result = await cursor.toArray();
-        res.send(result);
-    })
-
-    // readOne
-    app.get('/visaDetails/:id', async(req, res) => {
-      const id = req.params.id;
-      console.log(id)
-      const query = {_id: new ObjectId(id)};
-      console.log(query)
-      const result = await visasCollection.findOne(query);
+      const cursor = visasCollection.find();
+      const result = await cursor.toArray();
       res.send(result);
-    })
-    
-    // create 
-    app.post('/visa', async(req, res) =>{
-        const data = req.body;
-        const result = await visasCollection.insertOne(data);
-        res.send(result);
-    })
+  })
 
-    
+  // readOne
+  app.get('/visaDetails/:id', async(req, res) => {
+    const id = req.params.id;
+    console.log(id)
+    const query = {_id: new ObjectId(id)};
+    console.log(query)
+    const result = await visasCollection.findOne(query);
+    res.send(result);
+  })
+  
+  // create 
+  app.post('/visa', async(req, res) =>{
+      const data = req.body;
+      const result = await visasCollection.insertOne(data);
+      res.send(result);
+  })
+
+
+  // create applications
+  app.post('/applications', async(req, res) => {
+    const data = req.body;
+    const result = await applicationsCollection.insertOne(data);
+    res.send(result);
+  })
+
+
+
+
 
 
 
@@ -75,12 +87,9 @@ async function run() {
     // Send a ping to confirm a successful connection
     // versel এ ডিপ্লয় করার সময় কমেন্ট করে দিতে হবে নিচের লাইন
     await client.db("admin").command({ ping: 1 });
-    console.log(
-      "Pinged your deployment. You successfully connected to MongoDB Server!"
-    );
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
-    // Ensures that the client will close when you finish/error
-    // await client.close();
+
   }
 }
 run().catch(console.log);
