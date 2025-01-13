@@ -28,16 +28,12 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     // await client.connect();
 
     // database collection
     const database = client.db("visasDB");
     const visasCollection = database.collection("visas");
     const applicationsCollection = database.collection("applications");
-
-
-
 
 
     
@@ -152,9 +148,9 @@ async function run() {
 
   // filter visas
   app.get('/filters/:visaType', async(req, res) => {
-    const visaType = req.params.visaType;
-    const query = {visaType};
-    const cursor = applicationsCollection.find(query);
+    const typeOfVisa = req.params.visaType;
+    const query = {visaType: typeOfVisa};
+    const cursor = visasCollection.find(query);
     const result = await cursor.toArray();
     res.send(result);
   })
