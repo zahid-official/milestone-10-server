@@ -1,44 +1,26 @@
-# Viso - Visa Application Companion
+# Viso - Visa Navigator Portal (Server-Side)
 
-Welcome to **Viso**, your trusted and seamless visa application companion! Whether you're applying for your first visa or managing multiple applications, Viso is designed to make the visa process simple and stress-free.
+**Viso** is the server-side platform for managing visa applications, powered by Firebase Authentication, Express.js, and MongoDB. It efficiently handles visa data, user authentication, and application tracking, ensuring a smooth backend experience.
 
 ## 🚀 Key Features:
 
-### 🔍 Product Profiles
-
-Dive into the world of visa applications with our detailed process guides. Each guide includes:
-- Step-by-step application instructions
-- Clear visa requirements
-- Progress tracking tools
-- Helpful tips and FAQs
-
-### 🤝 How It Works
-
-Enjoy exclusive access to:
-- **Choose Your Visa:** Browse and select the visa type that best suits your travel needs.
-- **Complete Vocabulary Lessons:** Get familiar with important terms and phrases related to visas and immigration processes.
-- **Practice & Quiz:** Enhance your knowledge with interactive practice sessions and quizzes.
-- **Track Your Progress:** Stay updated on your application's status and track your progress throughout the process.
-- **Continue to Grow:** Keep learning and stay informed with continuous updates and new lessons.
+- **User Authentication:** Firebase Auth for secure user sign-ins and session management.
+- **Visa Application Management:** Use Express.js to handle API requests for visa types, requirements, and status updates.
+- **MongoDB CRUD Operations:** Store and manage visa application data with MongoDB, supporting Create, Read, Update, and Delete operations.
+- **Search & Filter:** Implement MongoDB queries to filter and search visa applications by various criteria (e.g., visa type, application status).
 
 ## ⚡ Why Choose Viso?
 
-Viso is powered by the latest web technologies to deliver a seamless, dynamic experience:
-
-- **Fun & Interactive:** Our tools and resources are designed to make the visa application process engaging and enjoyable.
-- **Effective Retention:** Master the visa process and requirements with interactive lessons and quizzes that enhance retention.
-- **Accessible Anywhere:** Manage your visa applications on any device, wherever you are.
-- **Multi-Language Support:** Viso is available in multiple languages, ensuring accessibility for users around the world.
+- **Secure Authentication:** Firebase Auth ensures secure user management.
+- **Efficient Data Management:** MongoDB handles large datasets for visa applications with fast query performance.
+- **Scalable Architecture:** Express.js enables a flexible and scalable API for handling multiple requests.
+- **Real-Time Updates:** Keep users informed with live status updates and progress tracking.
 
 ---
 
 ## 🔗 Live Demo:
-Check out our live demo here: https://viso-official.surge.sh/
+View the front-end demo here: https://server-one-ashen-40.vercel.app/
 
 ---
 
-## Contact Us:
-
-For more details or if you have any questions, feel free to contact us. We're here to help you every step of the way!
-
-Thank you for exploring **Viso**! Safe travels and smooth applications ahead!
+For questions or support, feel free to reach out. Thank you for using **Viso**!
